@@ -1,0 +1,11 @@
+#main-paginator {
+    overflow: auto;
+}
+
+#dataTablePost_paginate {
+    float: right;
+}
+
+#dataTablePost_filter {
+    float: right;
+}
