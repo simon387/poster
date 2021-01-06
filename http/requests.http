@@ -9,3 +9,7 @@ Content-Type: application/json
 {
   "text" : "gatto"
 }
+
+### delete all posts
+DELETE {{baseURL}}/post/deleteAll.php
+Accept: application/json

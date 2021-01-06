@@ -33,4 +33,15 @@ class Post
 		$stmt->execute();
 		return $stmt;
 	}
+
+	function deleteAll()
+	{
+		$query = "TRUNCATE TABLE " . $this->table_name;
+		$stmt = $this->conn->prepare($query);
+
+		if ($stmt->execute()) {
+			return true;
+		}
+		return false;
+	}
 }
