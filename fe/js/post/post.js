@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	getDatatableData();
 	$(document).on("keypress", '', function (e) {
 		const code = e.keyCode || e.which;
 		if (code === 13) {
@@ -9,7 +10,6 @@ $(document).ready(function () {
 	$("#btn-add-new-post").on("click", function () {
 		addNewPost();
 	});
-	getDatatableData();
 });
 
 const dataTablePost = $('#dataTablePost').DataTable({
@@ -17,10 +17,11 @@ const dataTablePost = $('#dataTablePost').DataTable({
 	paging: true,
 	searching: false,
 	autoWidth: true,
+	responsive: true,
 	columnDefs: [
-		{"width": "10%", orderable: false, targets: [0]},
+		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
-		{"width": "70%", orderable: false, targets: [2]},
+		{"width": "89%", orderable: false, targets: [2]},
 	],
 	aaSorting: [],
 });

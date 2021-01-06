@@ -9,3 +9,7 @@
 #dataTablePost_filter {
     float: right;
 }
+
+.table-responsive {
+    overflow: hidden;
+}
