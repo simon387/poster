@@ -81,3 +81,16 @@ function addNewPost() {
 		},
 	});
 }
+
+function deleteAll() {
+	blockScreen();
+	$.ajax({
+		type: "DELETE",
+		url: contextPath + "be/post/deleteAll.php",
+		processData: false,
+		success: function () {
+			location.reload();
+			unblockScreen();
+		},
+	});
+}
