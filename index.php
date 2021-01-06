@@ -27,15 +27,15 @@
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
 						<div class="row form-group">
-							<div class="col-1">
-								<button class="btn btn-primary btn-icon-split btn-sm" id="btn-add-new-post">
+							<div class="col">
+								<label for="text-modal-input">
+									<button class="btn btn-primary btn-icon-split btn-sm" id="btn-add-new-post">
 										<span class="icon text-white-50">
 											<em class="fas fa-plus"></em>
 										</span>
-									<span class="text">Add one</span>
-								</button>
-							</div>
-							<div class="col-11">
+										<span class="text">Add one</span>
+									</button>
+								</label>
 								<textarea type="text" class="form-control" id="text-modal-input" autocomplete="off"></textarea>
 							</div>
 						</div>
