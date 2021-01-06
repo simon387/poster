@@ -1,0 +1,11 @@
+### get all posts
+GET {{baseURL}}/post/readAll.php
+Accept: application/json
+
+### create a post
+PUT {{baseURL}}/post/create.php
+Content-Type: application/json
+
+{
+  "text" : "gatto"
+}

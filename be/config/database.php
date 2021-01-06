@@ -3,10 +3,10 @@
 
 class Database
 {
-	private $host = "";
-	private $db_name = "";
-	private $username = "";
-	private $password = "";
+	private $host = "172.17.0.2"; //it's a locker instance
+	private $db_name = "poster";
+	private $username = "root"; //lol fake, is not the production one
+	private $password = "root";
 	public $conn;
 
 	public function getConnection()
