@@ -1,22 +1,26 @@
-
 $(document).ready(function () {
-	$("#btn-add-new-post").on("click", function () {
-		$('#newPostModal').modal('show');
+	$(document).on("keypress", '', function (e) {
+		const code = e.keyCode || e.which;
+		if (code === 13) {
+			e.preventDefault();
+			addNewPost();
+		}
 	});
-	$("#btn-add-post").on("click", function () {
+	$("#btn-add-new-post").on("click", function () {
 		addNewPost();
 	});
 	getDatatableData();
 });
 
 const dataTablePost = $('#dataTablePost').DataTable({
+	bLengthChange: false,
 	paging: true,
-	searching: true,
+	searching: false,
 	autoWidth: true,
 	columnDefs: [
 		{"width": "10%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
-		{"width": "80%", orderable: false, targets: [2]},
+		{"width": "70%", orderable: false, targets: [2]},
 	],
 	aaSorting: [],
 });
@@ -57,6 +61,9 @@ function renderTable(data) {
 
 function addNewPost() {
 	const text = document.getElementById("text-modal-input").value;
+	if ("" === text) {
+		return;
+	}
 	document.getElementById("text-modal-input").value = "";
 	blockScreen();
 	$.ajax({
