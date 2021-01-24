@@ -7,3 +7,7 @@ function blockScreen() {
 function unblockScreen() {
 	$(".loading").fadeOut();
 }
+
+function goToUrl(urlToGo) {
+	window.location.href = urlToGo;
+}

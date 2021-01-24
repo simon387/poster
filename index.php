@@ -48,6 +48,7 @@
 									<th scope="row" class="col" data-field="id">Id</th>
 									<th scope="row" class="col" data-field="timestamp">Timestamp</th>
 									<th scope="row" class="col" data-field="text">Text</th>
+									<th scope="row" class="col" data-field="actions"></th>
 								</tr>
 								</thead>
 							</table>

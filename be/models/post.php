@@ -26,9 +26,20 @@ class Post
 		return false;
 	}
 
+	function read($id_)
+	{
+		$query = "select p.text from " . $this->table_name . " p where p.id=:id_ ";
+		$stmt = $this->conn->prepare($query);
+
+		$stmt->bindParam(":id_", $id_);
+
+		$stmt->execute();
+		return $stmt;
+	}
+
 	function readAll()
 	{
-		$query = "select p.id, p.timestamp, p.text from ". $this->table_name . " p  order by p.timestamp desc";
+		$query = "select p.id, p.timestamp, p.text from " . $this->table_name . " p  order by p.timestamp desc";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
