@@ -21,7 +21,8 @@ const dataTablePost = $('#dataTablePost').DataTable({
 	columnDefs: [
 		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
-		{"width": "89%", orderable: false, targets: [2]},
+		{"width": "84%", orderable: false, targets: [2]},
+		{"wdith": "5%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
@@ -53,11 +54,16 @@ function renderTable(data) {
 		dataTablePost.row.add([
 			id,
 			timestamp,
-			text,
+			"<pre>" + text + "</pre>",
+			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle'><i class='fas fa-info-circle'></i></a>",
 		]);
 	});
 	dataTablePost.draw();
 	unblockScreen();
+}
+
+function showFullScreen(id) {
+	goToUrl(contextPath + "be/post/read.php?id=" + id);
 }
 
 function addNewPost() {

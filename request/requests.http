@@ -1,0 +1,19 @@
+### get all posts
+GET {{baseURL}}/post/readAll.php
+Accept: application/json
+
+### create a post
+PUT {{baseURL}}/post/create.php
+Content-Type: application/json
+
+{
+  "text" : "gatto"
+}
+
+### delete all posts
+DELETE {{baseURL}}/post/deleteAll.php
+Accept: application/json
+
+### read a single post
+
+GET {{baseURL}}/post/read.php?id=1
