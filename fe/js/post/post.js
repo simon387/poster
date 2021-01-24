@@ -101,3 +101,16 @@ function deleteAll() {
 		},
 	});
 }
+
+function deleteById(id) {
+	blockScreen();
+	$.ajax({
+		type: "DELETE",
+		url: contextPath + "be/post/delete.php?id=" + id,
+		processData: false,
+		success: function () {
+			location.reload();
+			unblockScreen();
+		},
+	});
+}

@@ -55,4 +55,17 @@ class Post
 		}
 		return false;
 	}
+
+	function delete($id_)
+	{
+		$query = "delete from " . $this->table_name . " where id=:id_";
+		$stmt = $this->conn->prepare($query);
+
+		$stmt->bindParam(":id_", $id_);
+
+		if ($stmt->execute()) {
+			return true;
+		}
+		return false;
+	}
 }

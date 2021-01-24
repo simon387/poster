@@ -1,5 +1,6 @@
 1.1.0
 
 - Aggiunto fullscreen
+- Single delete by javascript
 
 1.0.0
