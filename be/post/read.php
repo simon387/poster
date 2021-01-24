@@ -12,7 +12,7 @@ $num = $stmt->rowCount();
 if ($num > 0) {
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	extract($row);
-	echo "<pre>" . $text . "</pre>";
+	echo "<XMP>" . $text . "</XMP>";
 	http_response_code(200);
 } else {
 	http_response_code(404);
