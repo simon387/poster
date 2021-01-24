@@ -54,7 +54,7 @@ function renderTable(data) {
 		dataTablePost.row.add([
 			id,
 			timestamp,
-			"<pre>" + text + "</pre>",
+			"<XMP>" + text + "</XMP>",
 			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle'><i class='fas fa-info-circle'></i></a>",
 		]);
 	});
