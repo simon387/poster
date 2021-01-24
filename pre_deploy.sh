@@ -14,6 +14,7 @@ rm -rf /home/scelia/Downloads/poster/LICENSE
 rm -rf /home/scelia/Downloads/poster/pre_deploy.sh
 rm -rf /home/scelia/Downloads/poster/README.md
 rm -rf /home/scelia/Downloads/poster/todo.md
+rm -rf /home/scelia/Downloads/poster/docs/
 
 rm -rf /home/scelia/Downloads/poster/be/config/database.php
 
