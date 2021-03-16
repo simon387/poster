@@ -36,7 +36,6 @@ function getDatatableData() {
 			renderTable(data);
 		},
 		error: function () {
-			console.clear();
 			unblockScreen();
 			dataTablePost.clear();
 			dataTablePost.draw();

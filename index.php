@@ -15,6 +15,7 @@
 	<link href="fe/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="fe/css/spinner-overlay.css" rel="stylesheet">
 	<link href="fe/css/custom.css" rel="stylesheet">
+	<link href="favicon.ico" rel="icon">
 </head>
 <body id="page-top">
 <div id="wrapper">
