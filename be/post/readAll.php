@@ -28,7 +28,7 @@ if ($num > 0) {
 	http_response_code(200);
 	echo json_encode($post_arr);
 } else {
-	http_response_code(404);
+	http_response_code(200);
 	echo json_encode(
 		array("message" => "No Posts found.")
 	);
