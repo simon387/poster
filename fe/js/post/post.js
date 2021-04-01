@@ -17,7 +17,9 @@ const dataTablePost = $('#dataTablePost').DataTable({
 	paging: true,
 	searching: false,
 	autoWidth: true,
-	responsive: true,
+	responsive: false,
+	scrollX: true,
+	lengthChange: true,
 	columnDefs: [
 		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
