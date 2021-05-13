@@ -18,13 +18,12 @@
 	<link href="favicon.ico" rel="icon">
 </head>
 <body id="page-top">
-<br>
 <div id="wrapper">
 	<div id="content-wrapper" class="d-flex flex-column">
 		<div id="content">
 			<div class="container-fluid">
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
-					<h1 class="h3 mb-0 text-gray-800">Poster</h1>
+					<h1 class="h3 mb-0 text-gray-800 title">Poster v1.1.3</h1>
 				</div>
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">

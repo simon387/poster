@@ -24,7 +24,7 @@ const dataTablePost = $('#dataTablePost').DataTable({
 		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
 		{"width": "84%", orderable: false, targets: [2]},
-		{"wdith": "5%", orderable: false, targets: [3]}
+		{"width": "5%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
