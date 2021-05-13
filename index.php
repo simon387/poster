@@ -34,7 +34,7 @@
 										<span class="icon text-white-50">
 											<em class="fas fa-plus"></em>
 										</span>
-										<span class="text">Add one</span>
+										<span class="text">Add one Post</span>
 									</button>
 								</label>
 								<textarea type="text" class="form-control" id="text-modal-input" autocomplete="off"></textarea>
