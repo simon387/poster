@@ -38,10 +38,12 @@ function getDatatableData() {
 			renderTable(data);
 		},
 		error: function () {
-			unblockScreen();
 			dataTablePost.clear();
 			dataTablePost.draw();
-		}
+		},
+		complete: function () {
+			unblockScreen();
+		},
 	});
 }
 
@@ -85,6 +87,8 @@ function addNewPost() {
 		}),
 		success: function () {
 			location.reload();
+		},
+		complete: function () {
 			unblockScreen();
 		},
 	});
@@ -98,6 +102,8 @@ function deleteAll() {
 		processData: false,
 		success: function () {
 			location.reload();
+		},
+		complete: function () {
 			unblockScreen();
 		},
 	});
@@ -111,6 +117,8 @@ function deleteById(id) {
 		processData: false,
 		success: function () {
 			location.reload();
+		},
+		complete: function() {
 			unblockScreen();
 		},
 	});
