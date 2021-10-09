@@ -15,4 +15,4 @@ jobs:
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           exclude: '[**/.git*, **/.git*/**, **/node_modules/**, TODO.md, deploy_localhost.sh, LICENSE, README.md, docs, todelete, request, dump]'
-          server-dir: poster
+          server-dir: poster/
