@@ -1,3 +1,7 @@
+1.1.5
+
+- Added CI
+
 1.1.4
 
 - Added a minimal ajax error handle
