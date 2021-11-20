@@ -1,6 +1,8 @@
 <?php
+$f = fopen("changelog.txt", 'r');
+$version = fgets($f);
+fclose($f);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +25,7 @@
 		<div id="content">
 			<div class="container-fluid">
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
-					<h1 class="h3 mb-0 text-gray-800 title">Poster v1.1.6</h1>
+					<h1 class="h3 mb-0 text-gray-800 title">Poster <?php echo $version ?></h1>
 				</div>
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
