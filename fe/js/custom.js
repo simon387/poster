@@ -9,5 +9,8 @@ function unblockScreen() {
 }
 
 function goToUrl(urlToGo) {
-	window.location.href = urlToGo;
+	window.open(
+		urlToGo,
+		'_blank'
+	);
 }
