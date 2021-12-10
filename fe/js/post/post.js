@@ -17,14 +17,14 @@ const dataTablePost = $('#dataTablePost').DataTable({
 	paging: true,
 	searching: false,
 	autoWidth: true,
-	responsive: false,
+	responsive: true,
 	scrollX: true,
 	lengthChange: true,
 	columnDefs: [
 		{"width": "1%", orderable: false, targets: [0]},
-		{"width": "10%", orderable: false, targets: [1]},
-		{"width": "84%", orderable: false, targets: [2]},
-		{"width": "5%", orderable: false, targets: [3]}
+		{"width": "19%", orderable: false, targets: [1]},
+		{"width": "5%", orderable: false, targets: [2]},
+		{"width": "75%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
@@ -57,8 +57,8 @@ function renderTable(data) {
 		dataTablePost.row.add([
 			id,
 			timestamp,
+			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-info-circle'></i></a>",
 			"<XMP>" + text + "</XMP>",
-			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle'><i class='fas fa-info-circle'></i></a>",
 		]);
 	});
 	dataTablePost.draw();

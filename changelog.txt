@@ -1,3 +1,7 @@
+Version 1.1.8
+- update config.php
+- upgrade UX
+
 Version 1.1.7
 - added minify to CI
 - added version to FE from this file

@@ -4,7 +4,7 @@ $version = fgets($f);
 fclose($f);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,8 +50,8 @@ fclose($f);
 								<tr>
 									<th scope="row" class="col" data-field="id">Id</th>
 									<th scope="row" class="col" data-field="timestamp">Timestamp</th>
+									<th scope="row" class="col" data-field="actions">Actions</th>
 									<th scope="row" class="col" data-field="text">Text</th>
-									<th scope="row" class="col" data-field="actions"></th>
 								</tr>
 								</thead>
 							</table>
