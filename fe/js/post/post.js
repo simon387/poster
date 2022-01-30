@@ -15,16 +15,15 @@ $(document).ready(function () {
 const dataTablePost = $('#dataTablePost').DataTable({
 	bLengthChange: false,
 	paging: true,
-	searching: false,
-	autoWidth: true,
-	responsive: true,
+	searching: true,
+	autoWidth: false,
 	scrollX: true,
 	lengthChange: true,
 	columnDefs: [
 		{"width": "1%", orderable: false, targets: [0]},
-		{"width": "19%", orderable: false, targets: [1]},
+		{"width": "10%", orderable: false, targets: [1]},
 		{"width": "5%", orderable: false, targets: [2]},
-		{"width": "75%", orderable: false, targets: [3]}
+		{"width": "84%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
