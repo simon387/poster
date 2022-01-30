@@ -1,3 +1,6 @@
+Version 1.1.10
+- graphic fix
+
 Version 1.1.9
 - updated .gitignore
 

@@ -45,13 +45,13 @@ fclose($f);
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTablePost" aria-describedby="table">
+							<table class="table table-bordered responsive table-striped" id="dataTablePost" aria-describedby="table">
 								<thead>
 								<tr>
-									<th scope="row" class="col" data-field="id">Id</th>
-									<th scope="row" class="col" data-field="timestamp">Timestamp</th>
-									<th scope="row" class="col" data-field="actions">Actions</th>
-									<th scope="row" class="col" data-field="text">Text</th>
+									<th data-priority="3" scope="row" class="col" data-field="id">Id</th>
+									<th data-priority="4" scope="row" class="col" data-field="timestamp">Timestamp</th>
+									<th data-priority="2" scope="row" class="col" data-field="actions">Actions</th>
+									<th data-priority="1" scope="row" class="col" data-field="text">Text</th>
 								</tr>
 								</thead>
 							</table>
