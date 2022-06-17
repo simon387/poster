@@ -22,7 +22,7 @@ if ($num > 0) {
 			"text" => $text,
 		);
 
-		array_push($post_arr["list"], $post_item);
+		$post_arr["list"][] = $post_item;
 	}
 
 	http_response_code(200);
