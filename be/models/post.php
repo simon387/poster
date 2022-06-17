@@ -13,7 +13,7 @@ class Post
 		$this->conn = $db;
 	}
 
-	function create($text_)
+	function create($text_): bool
 	{
 		$query = "INSERT INTO " . $this->table_name . " (text) VALUES (:text)";
 		$stmt = $this->conn->prepare($query);
@@ -28,7 +28,7 @@ class Post
 
 	function read($id_)
 	{
-		$query = "select p.text from " . $this->table_name . " p where p.id=:id_ ";
+		$query = "select p.text from " . $this->table_name . " p where p.id=:id_ and p.deleted=0 ";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindParam(":id_", $id_);
@@ -39,15 +39,15 @@ class Post
 
 	function readAll()
 	{
-		$query = "select p.id, p.timestamp, p.text from " . $this->table_name . " p  order by p.timestamp desc";
+		$query = "select p.id, p.timestamp, p.text from " . $this->table_name . " p where p.deleted=0 order by p.timestamp desc";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
 	}
 
-	function deleteAll()
+	function deleteAll(): bool
 	{
-		$query = "TRUNCATE TABLE " . $this->table_name;
+		$query = "update " . $this->table_name . " p set p.deleted=1 where p.deleted=0";
 		$stmt = $this->conn->prepare($query);
 
 		if ($stmt->execute()) {
@@ -56,9 +56,9 @@ class Post
 		return false;
 	}
 
-	function delete($id_)
+	function delete($id_): bool
 	{
-		$query = "delete from " . $this->table_name . " where id=:id_";
+		$query = "update " . $this->table_name . " p set p.deleted=1 where p.id=:id_";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindParam(":id_", $id_);
