@@ -1,3 +1,6 @@
+Version 1.2.1
+- removed enter to post
+
 Version 1.2.0
 - added logic delete
 

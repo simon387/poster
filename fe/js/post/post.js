@@ -1,12 +1,5 @@
 $(document).ready(function () {
 	getDatatableData();
-	$(document).on("keypress", '', function (e) {
-		const code = e.keyCode || e.which;
-		if (code === 13) {
-			e.preventDefault();
-			addNewPost();
-		}
-	});
 	$("#btn-add-new-post").on("click", function () {
 		addNewPost();
 	});
