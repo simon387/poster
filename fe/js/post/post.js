@@ -3,6 +3,12 @@ $(document).ready(function () {
 	$("#btn-add-new-post").on("click", function () {
 		addNewPost();
 	});
+	$("#btn-add-new-file").on("click", function () {
+		$("#uploadModal").modal().show();
+	});
+	$('#btn_upload').click(function () {
+		addNewFile();
+	});
 });
 
 const dataTablePost = $('#dataTablePost').DataTable({
@@ -61,8 +67,10 @@ function showFullScreen(id) {
 	goToUrl(contextPath + "be/post/read.php?id=" + id);
 }
 
-function addNewPost() {
-	const text = document.getElementById("text-modal-input").value;
+function addNewPost(text = "") {
+	if ("" === text) {
+		text = document.getElementById("text-modal-input").value;
+	}
 	if ("" === text) {
 		return;
 	}
@@ -110,7 +118,35 @@ function deleteById(id) {
 		success: function () {
 			location.reload();
 		},
-		complete: function() {
+		complete: function () {
+			unblockScreen();
+		},
+	});
+}
+
+function addNewFile() {
+	blockScreen();
+	const formData = new FormData();
+	const files = $('#file')[0].files[0];
+	formData.append('file', files);
+	$.ajax({
+		url: 'ajaxfile.php',
+		type: 'post',
+		data: formData,
+		contentType: false,
+		processData: false,
+		success: function (response) {
+			if (response !== 0) {
+				$("#uploadModal").modal().hide();
+				addNewPost(window.location.href + files.name)
+				// preview file disabilitata
+				// $('#preview').append("<img src='" + response + "' width='100' height='100' style='display: inline-block;'>");
+			} else {
+				alert('File not uploaded');
+				console.log("File not uploaded, checks file extensions or other things")
+			}
+		},
+		complete: function () {
 			unblockScreen();
 		},
 	});
