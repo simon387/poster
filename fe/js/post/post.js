@@ -22,7 +22,7 @@ const dataTablePost = $('#dataTablePost').DataTable({
 		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
 		{"width": "10%", orderable: false, targets: [2]},
-		{"width": "79%", orderable: false, targets: [3]}
+		{"width": "70%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
@@ -137,9 +137,12 @@ function addNewFile() {
 	blockScreen();
 	const formData = new FormData();
 	const files = $('#file')[0].files[0];
+	if (undefined === files) {
+		return;
+	}
 	formData.append('file', files);
 	$.ajax({
-		url: 'ajaxfile.php',
+		url: 'uploadfile.php',
 		type: 'post',
 		data: formData,
 		contentType: false,
