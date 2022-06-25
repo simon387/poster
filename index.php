@@ -21,6 +21,30 @@ fclose($f);
 </head>
 <body id="page-top">
 <div id="wrapper">
+	<!-- Modal -->
+	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	     aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">File Upload</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Insert the file to upload.</div>
+				<div>
+					<form method='post' enctype="multipart/form-data" style="padding: 1rem;">
+						Select file : <input type='file' name='file' id='file' class='form-control' ><br>
+						<input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
+					</form>
+				</div>
+				<!-- Preview-->
+				<div id='preview'></div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal -->
 	<div id="content-wrapper" class="d-flex flex-column">
 		<div id="content">
 			<div class="container-fluid">
@@ -37,6 +61,12 @@ fclose($f);
 											<em class="fas fa-plus"></em>
 										</span>
 										<span class="text">Add one Post</span>
+									</button>
+									<button class="btn btn-secondary btn-icon-split btn-sm" id="btn-add-new-file">
+										<span class="icon text-white-50">
+											<em class="fas fa-plus"></em>
+										</span>
+										<span class="text">Add one File</span>
 									</button>
 								</label>
 								<textarea type="text" class="form-control" id="text-modal-input" autocomplete="off"></textarea>

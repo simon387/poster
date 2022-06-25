@@ -2,3 +2,4 @@
 be/config/config.php
 lazygit.bat
 .gradle
+upload/*
