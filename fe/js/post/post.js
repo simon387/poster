@@ -134,12 +134,12 @@ function deleteById(id) {
 }
 
 function addNewFile() {
-	blockScreen();
 	const formData = new FormData();
 	const files = $('#file')[0].files[0];
 	if (undefined === files) {
 		return;
 	}
+	blockScreen();
 	formData.append('file', files);
 	$.ajax({
 		url: 'uploadfile.php',
