@@ -138,7 +138,7 @@ function addNewFile() {
 		success: function (response) {
 			if (response !== 0) {
 				$("#uploadModal").modal().hide();
-				addNewPost(window.location.href + files.name)
+				addNewPost(window.location.href + "upload/" + files.name)
 				// preview file disabilitata
 				// $('#preview').append("<img src='" + response + "' width='100' height='100' style='display: inline-block;'>");
 			} else {
