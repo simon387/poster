@@ -21,8 +21,8 @@ const dataTablePost = $('#dataTablePost').DataTable({
 	columnDefs: [
 		{"width": "1%", orderable: false, targets: [0]},
 		{"width": "10%", orderable: false, targets: [1]},
-		{"width": "5%", orderable: false, targets: [2]},
-		{"width": "84%", orderable: false, targets: [3]}
+		{"width": "10%", orderable: false, targets: [2]},
+		{"width": "79%", orderable: false, targets: [3]}
 	],
 	aaSorting: [],
 });
@@ -55,8 +55,9 @@ function renderTable(data) {
 		dataTablePost.row.add([
 			id,
 			timestamp,
-			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-info-circle'></i></a>",
-			"<XMP>" + text + "</XMP>",
+			"<a onclick='showFullScreen(" + id + ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-info-circle'></i></a> " +
+			"<a onclick='copyToClipboard(" + id + ")' class='btn btn-info btn-circle' title='Copy to clipboard'><i class='fas fa-play-circle'></i></a>",
+			"<XMP id='xmp-" + id + "'>" + text + "</XMP>",
 		]);
 	});
 	dataTablePost.draw();
@@ -65,6 +66,14 @@ function renderTable(data) {
 
 function showFullScreen(id) {
 	goToUrl(contextPath + "be/post/read.php?id=" + id);
+}
+
+function copyToClipboard(id) {
+	const copyText = document.getElementById("xmp-" + id);
+	// copyText.select();
+	// copyText.setSelectionRange(0, 99999); /* For mobile devices */
+	/* Copy the text inside the text field */
+	navigator.clipboard.writeText(copyText.textContent);
 }
 
 function addNewPost(text = "") {
