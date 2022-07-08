@@ -1,5 +1,7 @@
 create schema poster;
 
+use poster;
+
 create table post
 (
     id        int auto_increment primary key,
