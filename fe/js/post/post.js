@@ -118,19 +118,21 @@ function deleteAll() {
 	});
 }
 
-function deleteById(id) {
+function deleteById(...ids) {
 	blockScreen();
-	$.ajax({
-		type: "DELETE",
-		url: contextPath + "be/post/delete.php?id=" + id,
-		processData: false,
-		success: function () {
-			location.reload();
-		},
-		complete: function () {
-			unblockScreen();
-		},
-	});
+	for (let id of ids) {
+		$.ajax({
+			type: "DELETE",
+			url: contextPath + "be/post/delete.php?id=" + id,
+			processData: false,
+			success: function () {
+				location.reload();
+			},
+			complete: function () {
+				unblockScreen();
+			},
+		});
+	}
 }
 
 function addNewFile() {
