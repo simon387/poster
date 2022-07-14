@@ -1,3 +1,6 @@
+Version 1.4.4
+- increased text memory
+
 Version 1.4.3
 - added xlsx supported extension on uploads
 
