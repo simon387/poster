@@ -1,5 +1,8 @@
-Version 1.4.4
+Version 1.4.5
 - increased text memory
+
+Versoin 1.4.4
+- improved delete method
 
 Version 1.4.3
 - added xlsx supported extension on uploads
