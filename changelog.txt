@@ -1,3 +1,6 @@
+Version 1.4.6
+- added server side elaboration in the datatable
+
 Version 1.4.5
 - increased text memory
 

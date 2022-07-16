@@ -37,14 +37,6 @@ class Post
 		return $stmt;
 	}
 
-	function readAll()
-	{
-		$query = "select p.id, p.timestamp, p.text from " . $this->table_name . " p where p.deleted=0 order by p.timestamp desc";
-		$stmt = $this->conn->prepare($query);
-		$stmt->execute();
-		return $stmt;
-	}
-
 	function deleteAll(): bool
 	{
 		$query = "update " . $this->table_name . " p set p.deleted=1 where p.deleted=0";
