@@ -1,35 +1,41 @@
 <?php
 include_once '../config/database.php';
-include_once '../models/post.php';
-
-$database = new Database();
-$db = $database->getConnection();
-
-$post = new Post($db);
-$stmt = $post->readAll();
-$num = $stmt->rowCount();
-
-if ($num > 0) {
-	$post_arr = array();
-	$post_arr["list"] = array();
-
-	while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-		extract($row);
-
-		$post_item = array(
-			"id" => $id,
-			"timestamp" => $timestamp,
-			"text" => $text,
-		);
-
-		$post_arr["list"][] = $post_item;
-	}
-
-	http_response_code(200);
-	echo json_encode($post_arr);
-} else {
-	http_response_code(200);
-	echo json_encode(
-		array("message" => "No Posts found.")
-	);
-}
+// Database connection info
+$dbDetails = array(
+	'host' => Config::$db_host,
+	'user' => Config::$db_username,
+	'pass' => Config::$db_password,
+	'db' => Config::$db_name,
+);
+// mysql db table to use
+$table = 'post';
+// Table's primary key
+$primaryKey = 'id';
+// Array of database columns which should be read and sent back to DataTables.
+// The `db` parameter represents the column name in the database.
+// The `dt` parameter represents the DataTables column identifier.
+$columns = array(
+	array('db' => 'id', 'dt' => 0),
+	array('db' => 'timestamp', 'dt' => 1),
+	array(
+		'db' => 'id',
+		'dt' => 2,
+		'formatter' => function ($d, $row) {
+			return "<a onclick='showFullScreen(" . $d . ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-info-circle'></i></a> " .
+				"<a onclick='copyToClipboard(" . $d . ")' class='btn btn-info btn-circle' title='Copy to clipboard'><i class='fas fa-play-circle'></i></a>";
+		}
+	),
+	array(
+		'db' => 'text',
+		'dt' => 3,
+		'formatter' => function ($d, $row) {
+			return "<XMP id='xmp-" . $row[0] . "'>" . $d . "</XMP>";
+		}
+	),
+);
+// Include SQL query processing class
+require '../models/ssp.class.php';
+// Output data as json format
+echo json_encode(
+	SSP::complex($_GET, $dbDetails, $table, $primaryKey, $columns, null, "deleted = 0")
+);

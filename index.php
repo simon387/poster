@@ -35,12 +35,10 @@ fclose($f);
 				<div class="modal-body">Insert the file to upload.</div>
 				<div>
 					<form method='post' enctype="multipart/form-data" style="padding: 1rem;">
-						Select file : <input type='file' name='file' id='file' class='form-control' ><br>
+						Select file : <input type='file' name='file' id='file' class='form-control'><br>
 						<input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
 					</form>
 				</div>
-				<!-- Preview-->
-				<div id='preview'></div>
 			</div>
 		</div>
 	</div>
