@@ -34,7 +34,7 @@ $columns = array(
 	),
 );
 // Include SQL query processing class
-require '../models/ssp.class.php';
+require '../models/SSP.php';
 // Output data as json format
 echo json_encode(
 	SSP::complex($_GET, $dbDetails, $table, $primaryKey, $columns, null, "deleted = 0")

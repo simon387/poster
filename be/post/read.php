@@ -1,6 +1,6 @@
 <?php
 include_once '../config/database.php';
-include_once '../models/post.php';
+include_once '../models/Post.php';
 
 $database = new Database();
 $db = $database->getConnection();
