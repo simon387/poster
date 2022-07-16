@@ -1,5 +1,5 @@
 <?php
-include_once '../config/database.php';
+include_once '../config/config.php';
 // Database connection info
 $dbDetails = array(
 	'host' => Config::$db_host,
