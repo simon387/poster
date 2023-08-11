@@ -2,11 +2,7 @@
 
 class Post
 {
-	private $conn;
-	private $table_name = "post";
-	public $id;
-	public $timestamp;
-	public $text;
+	private mixed $conn;
 
 	public function __construct($db)
 	{
@@ -15,7 +11,7 @@ class Post
 
 	function create($text_): bool
 	{
-		$query = "INSERT INTO " . $this->table_name . " (text) VALUES (:text)";
+		$query = "INSERT INTO post (text) VALUES (:text)";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindParam(":text", $text_);
@@ -28,7 +24,7 @@ class Post
 
 	function read($id_)
 	{
-		$query = "select p.text from " . $this->table_name . " p where p.id=:id_ and p.deleted=0 ";
+		$query = "select p.text from post p where p.id=:id_ and p.deleted=0 ";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindParam(":id_", $id_);
@@ -39,7 +35,7 @@ class Post
 
 	function deleteAll(): bool
 	{
-		$query = "update " . $this->table_name . " p set p.deleted=1 where p.deleted=0";
+		$query = "update post p set p.deleted=1 where p.deleted=0";
 		$stmt = $this->conn->prepare($query);
 
 		if ($stmt->execute()) {
@@ -50,7 +46,7 @@ class Post
 
 	function delete($id_): bool
 	{
-		$query = "update " . $this->table_name . " p set p.deleted=1 where p.id=:id_";
+		$query = "update post p set p.deleted=1 where p.id=:id_";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindParam(":id_", $id_);
