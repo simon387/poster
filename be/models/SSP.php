@@ -17,6 +17,8 @@
 
 
 // Please Remove below 4 lines as this is use in Datatatables test environment for your local or live environment please remove it or else it will not work
+use JetBrains\PhpStorm\NoReturn;
+
 $file = $_SERVER['DOCUMENT_ROOT'] . '/datatables/pdo.php';
 if (is_file($file)) {
 	include($file);
@@ -32,7 +34,7 @@ class SSP
 	 * @param array $data Data from the SQL get
 	 * @return array          Formatted data in a row based format
 	 */
-	static function data_output($columns, $data)
+	static function data_output(array $columns, array $data): array
 	{
 		$out = array();
 
@@ -76,15 +78,11 @@ class SSP
 	 *     * db   - database name
 	 *     * user - user name
 	 *     * pass - user password
-	 * @return resource PDO connection
+	 * @return PDO PDO connection
 	 */
-	static function db($conn)
+	static function db(array $conn): PDO
 	{
-		if (is_array($conn)) {
-			return self::sql_connect($conn);
-		}
-
-		return $conn;
+		return self::sql_connect($conn);
 	}
 
 
@@ -94,10 +92,9 @@ class SSP
 	 * Construct the LIMIT clause for server-side processing SQL query
 	 *
 	 * @param array $request Data sent to server by DataTables
-	 * @param array $columns Column information array
 	 * @return string SQL limit clause
 	 */
-	static function limit($request, $columns)
+	static function limit(array $request): string
 	{
 		$limit = '';
 
@@ -118,7 +115,7 @@ class SSP
 	 * @param array $columns Column information array
 	 * @return string SQL order by clause
 	 */
-	static function order($request, $columns)
+	static function order(array $request, array $columns): string
 	{
 		$order = '';
 
@@ -167,7 +164,7 @@ class SSP
 	 *    sql_exec() function
 	 * @return string SQL where clause
 	 */
-	static function filter($request, $columns, &$bindings)
+	static function filter(array $request, array $columns, array &$bindings): string
 	{
 		$globalSearch = array();
 		$columnSearch = array();
@@ -238,19 +235,19 @@ class SSP
 	 * sending back to the client.
 	 *
 	 * @param array $request Data sent to server by DataTables
-	 * @param array|PDO $conn PDO connection resource or connection parameters array
+	 * @param PDO|array $conn PDO connection resource or connection parameters array
 	 * @param string $table SQL table to query
 	 * @param string $primaryKey Primary key of the table
 	 * @param array $columns Column information array
 	 * @return array          Server-side processing response array
 	 */
-	static function simple($request, $conn, $table, $primaryKey, $columns)
+	static function simple(array $request, PDO|array $conn, string $table, string $primaryKey, array $columns): array
 	{
 		$bindings = array();
 		$db = self::db($conn);
 
 		// Build the SQL query string from the request
-		$limit = self::limit($request, $columns);
+		$limit = self::limit($request);
 		$order = self::order($request, $columns);
 		$where = self::filter($request, $columns, $bindings);
 
@@ -265,7 +262,7 @@ class SSP
 
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec($db, $bindings,
-			"SELECT COUNT(`{$primaryKey}`)
+			"SELECT COUNT(`$primaryKey`)
 			 FROM   `$table`
 			 $where"
 		);
@@ -273,7 +270,7 @@ class SSP
 
 		// Total data set length
 		$resTotalLength = self::sql_exec($db,
-			"SELECT COUNT(`{$primaryKey}`)
+			(array)"SELECT COUNT(`$primaryKey`)
 			 FROM   `$table`"
 		);
 		$recordsTotal = $resTotalLength[0][0];
@@ -313,23 +310,23 @@ class SSP
 	 * values.
 	 *
 	 * @param array $request Data sent to server by DataTables
-	 * @param array|PDO $conn PDO connection resource or connection parameters array
+	 * @param PDO|array $conn PDO connection resource or connection parameters array
 	 * @param string $table SQL table to query
 	 * @param string $primaryKey Primary key of the table
 	 * @param array $columns Column information array
-	 * @param string|array $whereResult WHERE condition to apply to the result set
-	 * @param string|array $whereAll WHERE condition to apply to all queries
+	 * @param array|string|null $whereResult WHERE condition to apply to the result set
+	 * @param array|string|null $whereAll WHERE condition to apply to all queries
 	 * @return array          Server-side processing response array
 	 */
 	static function complex(
-		$request,
-		$conn,
-		$table,
-		$primaryKey,
-		$columns,
-		$whereResult = null,
-		$whereAll = null
-	)
+		array        $request,
+		PDO|array    $conn,
+		string       $table,
+		string       $primaryKey,
+		array        $columns,
+		array|string $whereResult = null,
+		array|string $whereAll = null
+	): array
 	{
 		$bindings = array();
 		$whereAllBindings = array();
@@ -337,7 +334,7 @@ class SSP
 		$whereAllSql = '';
 
 		// Build the SQL query string from the request
-		$limit = self::limit($request, $columns);
+		$limit = self::limit($request);
 		$order = self::order($request, $columns);
 		$where = self::filter($request, $columns, $bindings);
 
@@ -349,9 +346,6 @@ class SSP
 			if (is_array($whereResult)) {
 				$str = $whereResult['condition'];
 
-				if (isset($whereResult['bindings'])) {
-					self::add_bindings($bindings, $whereResult['bindings']);
-				}
 			}
 
 			$where = $where ?
@@ -366,9 +360,6 @@ class SSP
 			if (is_array($whereAll)) {
 				$str = $whereAll['condition'];
 
-				if (isset($whereAll['bindings'])) {
-					self::add_bindings($whereAllBindings, $whereAll['bindings']);
-				}
 			}
 
 			$where = $where ?
@@ -389,7 +380,7 @@ class SSP
 
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec($db, $bindings,
-			"SELECT COUNT(`{$primaryKey}`)
+			"SELECT COUNT(`$primaryKey`)
 			 FROM   `$table`
 			 $where"
 		);
@@ -397,7 +388,7 @@ class SSP
 
 		// Total data set length
 		$resTotalLength = self::sql_exec($db, $whereAllBindings,
-			"SELECT COUNT(`{$primaryKey}`)
+			"SELECT COUNT(`$primaryKey`)
 			 FROM   `$table` " .
 			$whereAllSql
 		);
@@ -426,9 +417,9 @@ class SSP
 	 *     * db   - database name
 	 *     * user - user name
 	 *     * pass - user password
-	 * @return resource Database connection handle
+	 * @return PDO Database connection handle
 	 */
-	static function sql_connect($sql_details)
+	static function sql_connect(array $sql_details): PDO
 	{
 		try {
 			$db = @new PDO(
@@ -455,10 +446,10 @@ class SSP
 	 * @param array $bindings Array of PDO binding values from bind() to be
 	 *   used for safely escaping strings. Note that this can be given as the
 	 *   SQL query string if no bindings are required.
-	 * @param string $sql SQL query to execute.
+	 * @param string|null $sql SQL query to execute.
 	 * @return array         Result from the query (all rows)
 	 */
-	static function sql_exec($db, $bindings, $sql = null)
+	static function sql_exec($db, array $bindings, string $sql = null): array
 	{
 		// Argument shifting
 		if ($sql === null) {
@@ -469,11 +460,9 @@ class SSP
 		//echo $sql;
 
 		// Bind parameters
-		if (is_array($bindings)) {
-			for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
-				$binding = $bindings[$i];
-				$stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
-			}
+		for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+			$binding = $bindings[$i];
+			$stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
 		}
 
 		// Execute
@@ -500,7 +489,7 @@ class SSP
 	 *
 	 * @param string $msg Message to send to the client
 	 */
-	static function fatal($msg)
+	#[NoReturn] static function fatal(string $msg): void
 	{
 		echo json_encode(array(
 			"error" => $msg
@@ -519,7 +508,7 @@ class SSP
 	 * @return string       Bound key to be used in the SQL where this parameter
 	 *   would be used.
 	 */
-	static function bind(&$a, $val, $type)
+	static function bind(array &$a, $val, int $type): string
 	{
 		$key = ':binding_' . count($a);
 
@@ -532,17 +521,6 @@ class SSP
 		return $key;
 	}
 
-	static function add_bindings(&$a, $vals)
-	{
-		foreach ($vals['bindings'] as $key => $value) {
-			$bindings[] = array(
-				'key' => $key,
-				'val' => $value,
-				'type' => PDO::PARAM_STR
-			);
-		}
-	}
-
 
 	/**
 	 * Pull a particular property from each assoc. array in a numeric array,
@@ -552,7 +530,7 @@ class SSP
 	 * @param string $prop Property to read
 	 * @return array        Array of property values
 	 */
-	static function pluck($a, $prop)
+	static function pluck(array $a, string $prop): array
 	{
 		$out = array();
 
@@ -570,20 +548,4 @@ class SSP
 	}
 
 
-	/**
-	 * Return a string from an array or a string
-	 *
-	 * @param array|string $a Array to join
-	 * @param string $join Glue for the concatenation
-	 * @return string Joined string
-	 */
-	static function _flatten($a, $join = ' AND ')
-	{
-		if (!$a) {
-			return '';
-		} else if ($a && is_array($a)) {
-			return implode($join, $a);
-		}
-		return $a;
-	}
 }
