@@ -22,6 +22,11 @@ $(document).ready(function () {
 	});
 });
 
+function openInNewWindow(id) {
+	const url = document.getElementById("xmp-" + id).textContent;
+	goToUrl(url);
+}
+
 function showFullScreen(id) {
 	goToUrl(contextPath + "be/post/read.php?id=" + id);
 }

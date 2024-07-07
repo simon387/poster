@@ -21,8 +21,10 @@ $columns = array(
 		'db' => 'id',
 		'dt' => 2,
 		'formatter' => function ($d, $row) {
-			return "<a onclick='showFullScreen(" . $d . ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-info-circle'></i></a> " .
-				"<a onclick='copyToClipboard(" . $d . ")' class='btn btn-info btn-circle' title='Copy to clipboard'><i class='fas fa-play-circle'></i></a>";
+			return
+				"<a onclick='openInNewWindow(" . $d . ")' class='btn btn-info btn-circle' title='Open in new window'><i class='fas fa-link'></i></a> " .
+				"<a onclick='copyToClipboard(" . $d . ")' class='btn btn-info btn-circle' title='Copy to clipboard'><i class='fas fa-clipboard'></i></a> " .
+				"<a onclick='showFullScreen(" . $d . ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-eye'></i></a> ";
 		}
 	),
 	array(

@@ -9,6 +9,11 @@ function unblockScreen() {
 }
 
 function goToUrl(urlToGo) {
+
+	if (!/^https?:\/\//i.test(urlToGo)) {
+		urlToGo = 'https://' + urlToGo;
+	}
+
 	window.open(
 		urlToGo,
 		'_blank'
