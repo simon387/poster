@@ -8,10 +8,12 @@ function unblockScreen() {
 	$(".loading").fadeOut();
 }
 
-function goToUrl(urlToGo) {
+function goToUrl(urlToGo, viewRaw = false) {
 
-	if (!/^https?:\/\//i.test(urlToGo)) {
-		urlToGo = 'https://' + urlToGo;
+	if (!viewRaw) {
+		if (!/^https?:\/\//i.test(urlToGo)) {
+			urlToGo = 'https://' + urlToGo;
+		}
 	}
 
 	window.open(

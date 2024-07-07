@@ -1,3 +1,9 @@
+Version 1.4.17
+- fixed bug show raw
+- added alert copy to clipboard
+- added alert no text entered
+- changed homepage's title
+
 Version 1.4.16
 - added open in new tab
 - changed icons

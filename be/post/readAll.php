@@ -24,7 +24,7 @@ $columns = array(
 			return
 				"<a onclick='openInNewWindow(" . $d . ")' class='btn btn-info btn-circle' title='Open in new window'><i class='fas fa-link'></i></a> " .
 				"<a onclick='copyToClipboard(" . $d . ")' class='btn btn-info btn-circle' title='Copy to clipboard'><i class='fas fa-clipboard'></i></a> " .
-				"<a onclick='showFullScreen(" . $d . ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-eye'></i></a> ";
+				"<a onclick='viewRaw(" . $d . ")' class='btn btn-info btn-circle' title='View raw'><i class='fas fa-eye'></i></a> ";
 		}
 	),
 	array(

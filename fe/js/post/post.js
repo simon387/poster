@@ -27,8 +27,8 @@ function openInNewWindow(id) {
 	goToUrl(url);
 }
 
-function showFullScreen(id) {
-	goToUrl(contextPath + "be/post/read.php?id=" + id);
+function viewRaw(id) {
+	goToUrl(contextPath + "be/post/read.php?id=" + id, true);
 }
 
 function copyToClipboard(id) {
@@ -37,6 +37,7 @@ function copyToClipboard(id) {
 	// copyText.setSelectionRange(0, 99999); /* For mobile devices */
 	/* Copy the text inside the text field */
 	navigator.clipboard.writeText(copyText.textContent).then(r => {return r});
+	alert("Text copied to clipboard!");
 }
 
 function addNewPost(text = "") {
@@ -44,6 +45,7 @@ function addNewPost(text = "") {
 		text = document.getElementById("text-modal-input").value;
 	}
 	if ("" === text) {
+		alert("No text entered!");
 		return;
 	}
 	document.getElementById("text-modal-input").value = "";
