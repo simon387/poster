@@ -1,3 +1,6 @@
+### REMEMBER to set Config.php before running!
+
+
 ### get all posts
 GET {{baseURL}}/post/readAll.php
 Accept: application/json

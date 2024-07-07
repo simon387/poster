@@ -16,6 +16,7 @@ fclose($f);
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="fe/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="fe/css/spinner-overlay.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="fe/vendor/datatables/responsive.dataTables.min.css">
 	<link href="fe/css/custom.css" rel="stylesheet">
 	<link href="favicon.ico" rel="icon">
 </head>
@@ -105,6 +106,8 @@ fclose($f);
 <script src="fe/js/sb-admin-2.min.js"></script>
 <script src="fe/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="fe/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="fe/vendor/datatables/dataTables.colReorder.min.js"></script>
+<script src="fe/vendor/datatables/dataTables.responsive.min.js"></script>
 <script src="fe/js/custom.js"></script>
 <script src="fe/js/post/post.js"></script>
 

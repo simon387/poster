@@ -31,7 +31,7 @@ function copyToClipboard(id) {
 	// copyText.select();
 	// copyText.setSelectionRange(0, 99999); /* For mobile devices */
 	/* Copy the text inside the text field */
-	navigator.clipboard.writeText(copyText.textContent);
+	navigator.clipboard.writeText(copyText.textContent).then(r => {return r});
 }
 
 function addNewPost(text = "") {
