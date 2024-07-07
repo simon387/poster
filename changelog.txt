@@ -1,3 +1,6 @@
+Version 1.4.18
+- better url management
+
 Version 1.4.17
 - fixed bug show raw
 - added alert copy to clipboard

@@ -23,12 +23,37 @@ $(document).ready(function () {
 });
 
 function openInNewWindow(id) {
-	const url = document.getElementById("xmp-" + id).textContent;
-	goToUrl(url);
+	const text = document.getElementById("xmp-" + id).textContent;
+	const url = extractFirstUrl(text);
+	if (url) {
+		window.open(
+			url,
+			'_blank'
+		);
+	} else {
+		alert("No valid url found!")
+	}
+}
+
+function extractFirstUrl(text) {
+	const urlPattern = /((https?:\/\/|www\.)[^\s\/$.?#].\S*)/i;
+	const match = text.match(urlPattern);
+	if (match) {
+		// Add "http://" if the URL starts with "www."
+		let url = match[0];
+		if (url.startsWith('www.')) {
+			url = 'https://' + url;
+		}
+		return url;
+	}
+	return null;
 }
 
 function viewRaw(id) {
-	goToUrl(contextPath + "be/post/read.php?id=" + id, true);
+	window.open(
+		contextPath + "be/post/read.php?id=" + id,
+		'_blank'
+	);
 }
 
 function copyToClipboard(id) {

@@ -22,9 +22,7 @@ fclose($f);
 </head>
 <body id="page-top">
 <div id="wrapper">
-	<!-- Modal -->
-	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	     aria-hidden="true">
+	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -43,7 +41,6 @@ fclose($f);
 			</div>
 		</div>
 	</div>
-	<!-- end Modal -->
 	<div id="content-wrapper" class="d-flex flex-column">
 		<div id="content">
 			<div class="container-fluid">
@@ -95,11 +92,9 @@ fclose($f);
 		</div>
 	</div>
 </div>
-
 <a class="scroll-to-top rounded" href="#page-top">
 	<em class="fas fa-angle-up"></em>
 </a>
-
 <script src="fe/vendor/jquery/jquery.min.js"></script>
 <script src="fe/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="fe/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -110,8 +105,6 @@ fclose($f);
 <script src="fe/vendor/datatables/dataTables.responsive.min.js"></script>
 <script src="fe/js/custom.js"></script>
 <script src="fe/js/post/post.js"></script>
-
 <div class="loading" style="display:none;">Loading&#8230;</div>
-
 </body>
 </html>
