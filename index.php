@@ -20,7 +20,7 @@ fclose($f);
 	<link href="fe/css/custom.css" rel="stylesheet">
 	<link href="favicon.ico" rel="icon">
 </head>
-<body id="page-top">
+<body id="page-top" class="bg-gradient-dark sidebar-dark">
 <div id="wrapper">
 	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -46,6 +46,10 @@ fclose($f);
 			<div class="container-fluid">
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
 					<h1 class="h3 mb-0 text-gray-800 title">Poster - <?php echo $version ?></h1>
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="darkModeSwitch">
+						<label class="custom-control-label" for="darkModeSwitch">Dark Mode</label>
+					</div>
 				</div>
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">

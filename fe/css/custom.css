@@ -18,3 +18,89 @@
     margin-top: 1rem;
     margin-left: 1rem;
 }
+
+/* Dark mode overrides for SB Admin 2 */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+.card-header {
+    background-color: #2a2a2a;
+    border-color: #333;
+}
+
+.table {
+    color: #e0e0e0;
+}
+
+.table td, .table th {
+    border-top: 1px solid #333;
+}
+
+.table thead th {
+    border-bottom: 2px solid #333;
+}
+
+.bg-white {
+    background-color: #1e1e1e !important;
+}
+
+.bg-light {
+    background-color: #2a2a2a !important;
+}
+
+.border-left-primary, .border-left-success, .border-left-info,
+.border-left-warning, .border-left-danger {
+    border-left: 0.25rem solid !important;
+}
+
+.text-gray-800 {
+    color: #e0e0e0 !important;
+}
+
+.text-gray-600 {
+    color: #b0b0b0 !important;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .75) !important;
+}
+
+.topbar {
+    background-color: #1e1e1e;
+}
+
+.sidebar {
+    background-color: #121212;
+    background-image: linear-gradient(180deg, #121212 10%, #2c2c2c 100%);
+}
+
+.sidebar-dark .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input, select, textarea {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+.dropdown-menu {
+    background-color: #2a2a2a;
+    border-color: #333;
+}
+
+.dropdown-item {
+    color: #e0e0e0;
+}
+
+.dropdown-item:hover {
+    background-color: #333;
+    color: #fff;
+}
