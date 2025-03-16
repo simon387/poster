@@ -45,8 +45,8 @@ fclose($f);
 		<div id="content">
 			<div class="container-fluid">
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
-					<h1 class="h3 mb-0 text-gray-800 title">Poster - <?php echo $version ?></h1>
-					<div class="custom-control custom-switch">
+					<h1 class="h3 mb-0 text-white title">Poster - <?php echo $version ?></h1>
+					<div class="custom-control custom-switch text-white">
 						<input type="checkbox" class="custom-control-input" id="darkModeSwitch">
 						<label class="custom-control-label" for="darkModeSwitch">Dark Mode</label>
 					</div>

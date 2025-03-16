@@ -8,20 +8,21 @@ function unblockScreen() {
 	$(".loading").fadeOut();
 }
 
-document.getElementById('darkModeSwitch').addEventListener('change', function () {
-	if (this.checked) {
-		document.body.classList.add('bg-gradient-dark');
-		document.body.classList.add('sidebar-dark');
-		document.querySelectorAll('.card').forEach(card => {
-			card.classList.add('bg-dark');
-			card.classList.add('text-white');
-		});
-	} else {
-		document.body.classList.remove('bg-gradient-dark');
-		document.body.classList.remove('sidebar-dark');
-		document.querySelectorAll('.card').forEach(card => {
-			card.classList.remove('bg-dark');
-			card.classList.remove('text-white');
-		});
-	}
+// Add this to your custom.js or post.js file
+$(document).ready(function () {
+	// Set the switch to checked initially since dark mode is already on
+	$('#darkModeSwitch').prop('checked', true);
+
+	// Handle toggle
+	$('#darkModeSwitch').change(function () {
+		if (this.checked) {
+			$('body').addClass('bg-gradient-dark sidebar-dark');
+			$('.card').addClass('bg-dark text-white');
+			$('.table').addClass('text-white');
+		} else {
+			$('body').removeClass('bg-gradient-dark sidebar-dark');
+			$('.card').removeClass('bg-dark text-white');
+			$('.table').removeClass('text-white');
+		}
+	});
 });
