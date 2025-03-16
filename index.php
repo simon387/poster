@@ -20,23 +20,24 @@ fclose($f);
 	<link href="fe/css/custom.css" rel="stylesheet">
 	<link href="favicon.ico" rel="icon">
 	<style>
-      /* dark-mode.css */
-      body.bg-gradient-dark .text-gray-800 {
-          color: #ffffff !important;
+      /* Custom dark mode overrides */
+      body.bg-gradient-dark .card-header {
+          background-color: #2a2a2a;
+          color: #ffffff;
       }
-
-      body.bg-gradient-dark .card-header,
       body.bg-gradient-dark .card {
-          background-color: #2a2a2a !important;
-          color: #ffffff !important;
+          background-color: #1e1e1e;
+          color: #ffffff;
       }
-
       body.bg-gradient-dark .table {
-          color: #e0e0e0 !important;
+          color: #e0e0e0;
       }
-
-      body.bg-gradient-dark .custom-control-label {
-          color: #ffffff !important;
+      body.bg-gradient-dark .table-striped tbody tr:nth-of-type(odd) {
+          background-color: rgba(255, 255, 255, 0.05);
+      }
+      body.bg-gradient-dark .modal-content {
+          background-color: #2a2a2a;
+          color: #ffffff;
       }
 	</style>
 </head>
@@ -64,13 +65,19 @@ fclose($f);
 	<div id="content-wrapper" class="d-flex flex-column">
 		<div id="content">
 			<div class="container-fluid">
-				<div class="d-sm-flex align-items-center justify-content-between mb-4">
-					<h1 class="h3 mb-0 text-white title">Poster - <?php echo $version ?></h1>
-					<div class="custom-control custom-switch">
-						<input type="checkbox" class="custom-control-input" id="darkModeSwitch" checked>
-						<label class="custom-control-label text-white" for="darkModeSwitch">Dark Mode</label>
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<div class="d-flex justify-content-between align-items-center">
+							<h1 class="h3 mb-0">Poster - <?php echo $version ?></h1>
+
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" id="darkModeSwitch" checked>
+								<label class="custom-control-label" for="darkModeSwitch">Dark Mode</label>
+							</div>
+						</div>
 					</div>
 				</div>
+
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
 						<div class="row form-group">
@@ -129,6 +136,29 @@ fclose($f);
 <script src="fe/vendor/datatables/dataTables.responsive.min.js"></script>
 <script src="fe/js/custom.js"></script>
 <script src="fe/js/post/post.js"></script>
+<script>
+	$(document).ready(function() {
+		function applyDarkMode(isDark) {
+			if(isDark) {
+				$('body').addClass('bg-gradient-dark sidebar-dark');
+				$('.table').addClass('text-white');
+				$('.form-control').addClass('bg-dark text-white');
+			} else {
+				$('body').removeClass('bg-gradient-dark sidebar-dark');
+				$('.table').removeClass('text-white');
+				$('.form-control').removeClass('bg-dark text-white');
+			}
+		}
+
+		// Initial state
+		applyDarkMode($('#darkModeSwitch').is(':checked'));
+
+		// Toggle handler
+		$('#darkModeSwitch').change(function() {
+			applyDarkMode(this.checked);
+		});
+	});
+</script>
 <div class="loading" style="display:none;">Loading&#8230;</div>
 </body>
 </html>
