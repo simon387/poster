@@ -22,7 +22,7 @@ $(document).ready(function () {
 	}
 
 	// Initial state
-	applyDarkMode($('#darkModeSwitch').is(':checked'));
+	applyDarkMode(!$('#darkModeSwitch').is(':checked'));
 
 	// Toggle handler
 	$('#darkModeSwitch').change(function () {
