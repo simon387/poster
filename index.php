@@ -19,6 +19,26 @@ fclose($f);
 	<link rel="stylesheet" type="text/css" href="fe/vendor/datatables/responsive.dataTables.min.css">
 	<link href="fe/css/custom.css" rel="stylesheet">
 	<link href="favicon.ico" rel="icon">
+	<style>
+      /* dark-mode.css */
+      body.bg-gradient-dark .text-gray-800 {
+          color: #ffffff !important;
+      }
+
+      body.bg-gradient-dark .card-header,
+      body.bg-gradient-dark .card {
+          background-color: #2a2a2a !important;
+          color: #ffffff !important;
+      }
+
+      body.bg-gradient-dark .table {
+          color: #e0e0e0 !important;
+      }
+
+      body.bg-gradient-dark .custom-control-label {
+          color: #ffffff !important;
+      }
+	</style>
 </head>
 <body id="page-top" class="bg-gradient-dark sidebar-dark">
 <div id="wrapper">
