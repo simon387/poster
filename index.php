@@ -19,29 +19,8 @@ fclose($f);
 	<link rel="stylesheet" type="text/css" href="fe/vendor/datatables/responsive.dataTables.min.css">
 	<link href="fe/css/custom.css" rel="stylesheet">
 	<link href="favicon.ico" rel="icon">
-	<style>
-      /* Custom dark mode overrides */
-      body.bg-gradient-dark .card-header {
-          background-color: #2a2a2a;
-          color: #ffffff;
-      }
-      body.bg-gradient-dark .card {
-          background-color: #1e1e1e;
-          color: #ffffff;
-      }
-      body.bg-gradient-dark .table {
-          color: #e0e0e0;
-      }
-      body.bg-gradient-dark .table-striped tbody tr:nth-of-type(odd) {
-          background-color: rgba(255, 255, 255, 0.05);
-      }
-      body.bg-gradient-dark .modal-content {
-          background-color: #2a2a2a;
-          color: #ffffff;
-      }
-	</style>
 </head>
-<body id="page-top" class="bg-gradient-dark sidebar-dark">
+<body id="page-top">
 <div id="wrapper">
 	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -136,29 +115,6 @@ fclose($f);
 <script src="fe/vendor/datatables/dataTables.responsive.min.js"></script>
 <script src="fe/js/custom.js"></script>
 <script src="fe/js/post/post.js"></script>
-<script>
-	$(document).ready(function() {
-		function applyDarkMode(isDark) {
-			if(isDark) {
-				$('body').addClass('bg-gradient-dark sidebar-dark');
-				$('.table').addClass('text-white');
-				$('.form-control').addClass('bg-dark text-white');
-			} else {
-				$('body').removeClass('bg-gradient-dark sidebar-dark');
-				$('.table').removeClass('text-white');
-				$('.form-control').removeClass('bg-dark text-white');
-			}
-		}
-
-		// Initial state
-		applyDarkMode($('#darkModeSwitch').is(':checked'));
-
-		// Toggle handler
-		$('#darkModeSwitch').change(function() {
-			applyDarkMode(this.checked);
-		});
-	});
-</script>
 <div class="loading" style="display:none;">Loading&#8230;</div>
 </body>
 </html>

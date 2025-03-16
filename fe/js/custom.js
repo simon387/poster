@@ -9,25 +9,23 @@ function unblockScreen() {
 }
 
 $(document).ready(function () {
-	function updateTheme(isDark) {
+	function applyDarkMode(isDark) {
 		if (isDark) {
 			$('body').addClass('bg-gradient-dark sidebar-dark');
-			$('.text-gray-800').addClass('text-white').removeClass('text-gray-800');
-			$('.card').addClass('bg-dark');
-			$('.custom-control-label').addClass('text-white');
+			$('.table').addClass('text-white');
+			$('.form-control').addClass('bg-dark text-white');
 		} else {
 			$('body').removeClass('bg-gradient-dark sidebar-dark');
-			$('.text-white').not('.icon').addClass('text-gray-800').removeClass('text-white');
-			$('.card').removeClass('bg-dark');
-			$('.custom-control-label').removeClass('text-white');
+			$('.table').removeClass('text-white');
+			$('.form-control').removeClass('bg-dark text-white');
 		}
 	}
 
-	// Initial state (since the checkbox is checked by default)
-	updateTheme(true);
+	// Initial state
+	applyDarkMode($('#darkModeSwitch').is(':checked'));
 
-	// Handle toggle
+	// Toggle handler
 	$('#darkModeSwitch').change(function () {
-		updateTheme(this.checked);
+		applyDarkMode(this.checked);
 	});
 });
