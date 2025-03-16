@@ -28,4 +28,14 @@ $(document).ready(function () {
 	$('#darkModeSwitch').change(function () {
 		applyDarkMode(this.checked);
 	});
+
+	// Apply dark mode styling to modals when they open
+	$('.modal').on('show.bs.modal', function () {
+		if ($('#darkModeSwitch').is(':checked')) {
+			$(this).find('.modal-content').addClass('bg-dark');
+			$(this).find('.modal-header').addClass('bg-dark text-white');
+			$(this).find('.modal-body').addClass('bg-dark text-white');
+			$(this).find('.form-control').addClass('bg-dark text-white border-secondary');
+		}
+	});
 });

@@ -104,3 +104,66 @@ input, select, textarea {
     background-color: #333;
     color: #fff;
 }
+
+body.bg-gradient-dark .card-header {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.bg-gradient-dark .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.bg-gradient-dark .table {
+    color: #e0e0e0;
+}
+
+body.bg-gradient-dark .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.bg-gradient-dark .modal-content {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.bg-gradient-dark .modal-header {
+    border-bottom: 1px solid #444;
+}
+
+body.bg-gradient-dark .modal-footer {
+    border-top: 1px solid #444;
+}
+
+body.bg-gradient-dark .close {
+    color: #ffffff;
+    text-shadow: 0 1px 0 #000;
+}
+
+body.bg-gradient-dark .form-control {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.bg-gradient-dark .pagination {
+    background-color: transparent;
+}
+
+body.bg-gradient-dark .page-item.disabled .page-link {
+    background-color: #333;
+    border-color: #444;
+    color: #888;
+}
+
+body.bg-gradient-dark .page-item:not(.active):not(.disabled) .page-link {
+    background-color: #333;
+    border-color: #444;
+    color: #ddd;
+}
+
+body.bg-gradient-dark .page-item.active .page-link {
+    background-color: #4e73df;
+    border-color: #4e73df;
+}

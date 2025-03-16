@@ -50,7 +50,7 @@ fclose($f);
 							<h1 class="h3 mb-0">Poster - <?php echo $version ?></h1>
 
 							<div class="custom-control custom-switch">
-								<input type="checkbox" class="custom-control-input" id="darkModeSwitch" checked>
+								<input type="checkbox" class="custom-control-input" id="darkModeSwitch" checked disabled>
 								<label class="custom-control-label" for="darkModeSwitch">Dark Mode</label>
 							</div>
 						</div>
