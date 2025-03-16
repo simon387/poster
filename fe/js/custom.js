@@ -8,21 +8,26 @@ function unblockScreen() {
 	$(".loading").fadeOut();
 }
 
-// Add this to your custom.js or post.js file
 $(document).ready(function () {
-	// Set the switch to checked initially since dark mode is already on
-	$('#darkModeSwitch').prop('checked', true);
+	function updateTheme(isDark) {
+		if (isDark) {
+			$('body').addClass('bg-gradient-dark sidebar-dark');
+			$('.text-gray-800').addClass('text-white').removeClass('text-gray-800');
+			$('.card').addClass('bg-dark');
+			$('.custom-control-label').addClass('text-white');
+		} else {
+			$('body').removeClass('bg-gradient-dark sidebar-dark');
+			$('.text-white').not('.icon').addClass('text-gray-800').removeClass('text-white');
+			$('.card').removeClass('bg-dark');
+			$('.custom-control-label').removeClass('text-white');
+		}
+	}
+
+	// Initial state (since the checkbox is checked by default)
+	updateTheme(true);
 
 	// Handle toggle
 	$('#darkModeSwitch').change(function () {
-		if (this.checked) {
-			$('body').addClass('bg-gradient-dark sidebar-dark');
-			$('.card').addClass('bg-dark text-white');
-			$('.table').addClass('text-white');
-		} else {
-			$('body').removeClass('bg-gradient-dark sidebar-dark');
-			$('.card').removeClass('bg-dark text-white');
-			$('.table').removeClass('text-white');
-		}
+		updateTheme(this.checked);
 	});
 });
