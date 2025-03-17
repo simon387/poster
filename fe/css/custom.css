@@ -167,3 +167,56 @@ body.bg-gradient-dark .page-item.active .page-link {
     background-color: #4e73df;
     border-color: #4e73df;
 }
+
+/* Stile dark per la paginazione */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #343a40 !important; /* Sfondo dark */
+    color: #ffffff !important; /* Testo bianco */
+    border: 1px solid #444 !important; /* Bordo scuro */
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 4px;
+}
+
+/* Stile per il pulsante attivo */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+/* Hover effect */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #495057 !important;
+    color: #ffffff !important;
+}
+
+/* Stile per i pulsanti disabilitati */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    background-color: #212529 !important;
+    color: #6c757d !important;
+    cursor: not-allowed;
+}
+
+/* Stile dark per la barra di ricerca e la selezione delle pagine */
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+/* Bordo della tabella scuro */
+.table {
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+/* Stile per le righe della tabella */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2c3034 !important;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #3a3f44 !important;
+}
