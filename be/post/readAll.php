@@ -31,7 +31,7 @@ $columns = array(
 		'db' => 'text',
 		'dt' => 3,
 		'formatter' => function ($d, $row) {
-			return "<XMP id='xmp-" . $row[0] . "'>" . $d . "</XMP>";
+			return "<XMP id='xmp-" . $row[0] . "'>" . htmlspecialchars($d, ENT_QUOTES, 'UTF-8') . "</XMP>";
 		}
 	),
 );
