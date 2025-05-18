@@ -220,3 +220,7 @@ body.bg-gradient-dark .page-item.active .page-link {
 .table-striped tbody tr:nth-of-type(even) {
     background-color: #3a3f44 !important;
 }
+
+pre {
+    color: white;
+}
